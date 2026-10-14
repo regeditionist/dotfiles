@@ -2,6 +2,5 @@
 Name=DWM (dotfiles)
 Comment=Dynamic window manager from ~/dotfiles
 Exec=/home/void/dotfiles/dwm/scripts/session
-TryExec=/home/void/dotfiles/dwm/build/dwm
+TryExec=/usr/bin/sh
 Type=Application
-DesktopNames=DWM

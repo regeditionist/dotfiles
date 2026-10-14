@@ -41,6 +41,11 @@ does not start Noctalia, since the current Noctalia setup is tied to Niri's
 Wayland session. The bar itself remains DWM's built-in bar; there is no
 Polybar.
 
+The SDDM entry's `TryExec` checks `/usr/bin/sh`, which is visible to the SDDM
+greeter. The DWM binary and launcher remain under the private `/home/void`
+directory; after authentication SDDM runs the session as `void`, so that
+session can access them without changing home-directory permissions.
+
 ## Controls
 
 `Mod` is Super/Windows. DWM retains its native tags, bar, and tile/floating/
