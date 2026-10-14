@@ -2,8 +2,8 @@
 
 This directory contains a small DWM 6.8 setup for this machine. It is based on
 the official suckless DWM release archive, with the local configuration in
-`upstream/config.def.h`. The app runner is upstream dmenu; no third-party
-patches or additional shell utilities are used.
+`upstream/config.def.h`. The app runner uses the system dmenu package; DWM does
+not build or call the vendored dmenu copy.
 
 ## Source and build
 
@@ -20,14 +20,13 @@ From the repository root:
 ./dwm/scripts/build
 ```
 
-This compiles DWM and dmenu locally and writes their executables to
-`dwm/build/`. It does not install packages or copy anything into system
-directories. Edit the respective `config.def.h` files, then rerun the build
-command.
+This compiles DWM and its pointer helper locally and writes their executables
+to `dwm/build/`. It does not install packages or copy anything into system
+directories. Edit `upstream/config.def.h`, then rerun the build command.
 
-`Super+Ctrl+Enter` opens dmenu's command list. It filters executable commands
-in the session `PATH`; type an app command and press Enter. The launcher and
-`stest` stay inside this repository.
+`Super+Ctrl+Enter` opens the system `dmenu_run` from `/usr/bin`. Its `PATH`
+puts `/usr/bin` first, so `dmenu_path`, `dmenu`, and `stest` also resolve to the
+system package instead of the vendored build.
 
 ## Session integration state
 

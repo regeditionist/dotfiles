@@ -3,7 +3,6 @@ set -eu
 
 ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 SRC="$ROOT/upstream"
-DMENU_SRC="$ROOT/dmenu/upstream"
 OUT="$ROOT/build"
 
 mkdir -p "$OUT"
@@ -11,18 +10,11 @@ cp "$SRC/config.def.h" "$SRC/config.h"
 make -C "$SRC" clean all
 cp "$SRC/dwm" "$OUT/dwm.new"
 mv -f "$OUT/dwm.new" "$OUT/dwm"
-cp "$DMENU_SRC/config.def.h" "$DMENU_SRC/config.h"
-make -C "$DMENU_SRC" clean all
-cp "$DMENU_SRC/dmenu" "$OUT/dmenu.new"
-mv -f "$OUT/dmenu.new" "$OUT/dmenu"
-cp "$DMENU_SRC/stest" "$OUT/stest.new"
-mv -f "$OUT/stest.new" "$OUT/stest"
 ${CC:-cc} -O2 -Wall -Wextra -o "$OUT/pointer-accel.new" \
 	"$ROOT/scripts/pointer-accel.c" -lXi -lX11
 mv -f "$OUT/pointer-accel.new" "$OUT/pointer-accel"
-printf 'Built DWM and dmenu in %s\n' "$OUT"
+printf 'Built DWM and the pointer helper in %s\n' "$OUT"
 version_status=0
 version=$("$OUT/dwm" -v 2>&1) || version_status=$?
 [ "$version_status" -eq 1 ] && [ "$version" = "dwm-6.8" ]
 printf '%s\n' "$version"
-"$OUT/dmenu" -v

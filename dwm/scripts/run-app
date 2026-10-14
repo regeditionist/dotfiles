@@ -1,8 +1,7 @@
 #!/bin/sh
 set -eu
 
-ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
-PATH="$ROOT/build:$PATH"
+PATH="/usr/bin:/bin${PATH:+:$PATH}"
 export PATH
 
-exec "$ROOT/dmenu/upstream/dmenu_run" "$@"
+exec /usr/bin/dmenu_run "$@"
