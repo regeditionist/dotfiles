@@ -8,6 +8,11 @@ WM="$ROOT/build/dwm"
 # Apply neutral core X pointer acceleration for this DWM session.
 "$ROOT/build/pointer-accel" || :
 
+# Restore the user's feh wallpaper for this X11 session.
+if [ -r "$HOME/.fehbg" ]; then
+	/bin/sh "$HOME/.fehbg"
+fi
+
 "$ROOT/scripts/status" &
 status_pid=$!
 cleanup() {
