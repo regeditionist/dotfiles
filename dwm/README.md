@@ -31,14 +31,13 @@ in the session `PATH`; type an app command and press Enter. The launcher and
 
 ## Session integration state
 
-The machine uses SDDM. Its current configuration sets `DisplayServer=x11` for
-the greeter but autologs into `gamescope-session.desktop`, which is a Wayland
-session. The installed session list has Niri and Gamescope under
-`/usr/share/wayland-sessions` and no X11 session directory/entry. DWM is an X11
-window manager, so it is built here but is not registered or selected at
-login. `session/dwm.desktop` is the entry to install if you later approve the
-system-level integration. No SDDM config, Niri file, package, or unrelated
-system setting is changed by this repository.
+The machine uses SDDM. Niri and Gamescope remain registered as Wayland
+sessions, and DWM is registered as the X11 session **DWM (dotfiles)** via
+`/usr/local/share/xsessions/dwm.desktop`. The entry invokes this repository's
+session launcher. The existing Gamescope autologin configuration is unchanged;
+choose another session from SDDM's session selector when signing in manually.
+No Niri configuration or unrelated system setting is changed by this
+repository.
 
 The DWM session script runs the compiled DWM binary and updates the native DWM
 bar's root-window status text using the already-installed `xprop` command. It
@@ -58,7 +57,7 @@ monocle layouts. The bindings port the core Niri controls where DWM has a
 reasonable equivalent; see [KEYBINDINGS.md](KEYBINDINGS.md) for the complete
 mapping and differences. Vanilla DWM does not provide Niri's horizontal
 columns, per-window heights, overview, shell panels, screenshots, lock screen,
-or session menu.
+or session menu. For daily use, see [CHEATSHEET.md](CHEATSHEET.md).
 
 ## Patches
 
