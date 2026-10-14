@@ -1,0 +1,5 @@
+dwm/build/dwm
+dwm/upstream/config.h
+dwm/upstream/*.o
+dwm/upstream/dwm
+dwm/upstream/dwm-*.tar.gz

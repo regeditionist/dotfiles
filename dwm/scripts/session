@@ -1,0 +1,18 @@
+#!/bin/sh
+set -eu
+
+ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+WM="$ROOT/build/dwm"
+[ -x "$WM" ] || "$ROOT/scripts/build"
+
+"$ROOT/scripts/status" &
+status_pid=$!
+cleanup() {
+	kill "$status_pid" 2>/dev/null || :
+	wait "$status_pid" 2>/dev/null || :
+}
+trap cleanup EXIT HUP INT TERM
+
+"$WM" &
+wm_pid=$!
+wait "$wm_pid"

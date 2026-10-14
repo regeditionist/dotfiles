@@ -1,0 +1,8 @@
+#!/bin/sh
+set -eu
+
+while :; do
+	status=$(date '+%a %d %b  %H:%M')
+	xprop -root -set WM_NAME "$status" >/dev/null 2>&1 || :
+	sleep 30
+done

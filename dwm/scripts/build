@@ -1,0 +1,16 @@
+#!/bin/sh
+set -eu
+
+ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+SRC="$ROOT/upstream"
+OUT="$ROOT/build"
+
+mkdir -p "$OUT"
+cp "$SRC/config.def.h" "$SRC/config.h"
+make -C "$SRC" clean all
+cp "$SRC/dwm" "$OUT/dwm"
+printf 'Built %s\n' "$OUT/dwm"
+version_status=0
+version=$("$OUT/dwm" -v 2>&1) || version_status=$?
+[ "$version_status" -eq 1 ] && [ "$version" = "dwm-6.8" ]
+printf '%s\n' "$version"
