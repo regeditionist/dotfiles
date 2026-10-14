@@ -5,6 +5,9 @@ ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 WM="$ROOT/build/dwm"
 [ -x "$WM" ] || "$ROOT/scripts/build"
 
+# Apply neutral core X pointer acceleration for this DWM session.
+"$ROOT/build/pointer-accel" || :
+
 "$ROOT/scripts/status" &
 status_pid=$!
 cleanup() {

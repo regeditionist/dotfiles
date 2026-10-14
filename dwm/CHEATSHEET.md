@@ -50,6 +50,7 @@ Tags can be shown together. DWM's focus keys move through its window order; they
 |---|---|
 | Volume up / down / mute keys | Change or mute default PipeWire output |
 | Microphone mute key | Mute or unmute default PipeWire input |
+| Pointer acceleration | DWM startup selects libinput's flat profile on supported X11 pointer devices |
 | `Super+Shift+Left/Right` | Focus previous / next monitor |
 | `Super+Shift+Ctrl+Left/Right` | Send focused window to previous / next monitor |
 | `Super+Shift+Up/Down` and `Super+Shift+Ctrl+Up/Down` | Same actions, following DWM's monitor order |
