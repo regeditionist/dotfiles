@@ -1,6 +1,7 @@
 dwm/build/dwm
 dwm/build/dmenu
 dwm/build/stest
+dwm/build/pointer-accel
 dwm/build/*.new
 dwm/upstream/config.h
 dwm/upstream/*.o
