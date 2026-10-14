@@ -2,8 +2,7 @@
 
 This repository contains a small DWM desktop setup for CachyOS and other
 Arch-based Linux systems using SDDM. DWM is an **X11** window manager. The
-setup adds a DWM choice to SDDM; it does not replace Niri or Gamescope, change
-their configuration, or change SDDM's autologin choice.
+setup adds a DWM choice to SDDM.
 
 The guide assumes you can log into your normal desktop and open a terminal.
 Commands marked with `sudo` make system-level changes; read each command
