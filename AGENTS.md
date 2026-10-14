@@ -24,10 +24,13 @@
   runs `~/.fehbg` if present, starts the status updater, then starts DWM.
   `~/.xinitrc` is not used for this SDDM-launched session.
 - `dwm/scripts/status` keeps the date and appends default sink volume/mute
-  from `wpctl`; it prefers `xsetroot -name` and falls back to `xprop`. The
-  `xorg-xsetroot` package was not installed at last check, so `xsetroot` mode
-  still needs the user's explicit approval for installation. The current tool
-  environment also could not connect to PipeWire to read a live volume.
+  from `wpctl`; it prefers `xsetroot -name` and falls back to `xprop`. Volume
+  up/down/output-mute keybindings invoke its one-shot mode for immediate
+  refresh; the session updater still polls every 30 seconds for the clock and
+  external volume changes. The `xorg-xsetroot` package was not installed at
+  last check, so `xsetroot` mode still needs the user's explicit approval for
+  installation. The current tool environment could not connect to PipeWire to
+  read a live volume.
 - The system currently has pacman `dmenu` installed, but the DWM shortcut uses
   the repository's local dmenu runner by design after commit `6d6260d` reverted
   the attempted switch to `/usr/bin/dmenu_run`. That attempt made the launcher

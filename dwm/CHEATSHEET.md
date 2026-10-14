@@ -34,6 +34,8 @@
 
 The built-in bar also hosts XEmbed system tray icons to the left of the
 date/volume status text, when applications provide them.
+Volume and output-mute keys refresh the displayed value immediately; other
+volume changes are picked up by the periodic status update.
 
 ## Workspaces (tags)
 

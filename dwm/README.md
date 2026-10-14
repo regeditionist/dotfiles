@@ -41,9 +41,10 @@ repository.
 
 The DWM session script runs the compiled DWM binary and updates the native DWM
 bar's root-window status text with the date, default sink volume, and mute
-state. It uses `xsetroot -name` when available, with the existing `xprop`
-fallback. It
-does not start Noctalia, since the current Noctalia setup is tied to Niri's
+state. Volume keys refresh the value immediately; the periodic updater keeps
+the clock current and picks up volume changes made elsewhere. It uses
+`xsetroot -name` when available, with the existing `xprop` fallback. It does
+not start Noctalia, since the current Noctalia setup is tied to Niri's
 Wayland session. The bar itself remains DWM's built-in bar; there is no
 Polybar.
 

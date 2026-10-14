@@ -63,9 +63,6 @@ static const char *dmenucmd[] = {
 	"-sb", "#88c0d0", "-sf", "#181a1f",
 	NULL
 };
-static const char *volupcmd[] = { "wpctl", "set-volume", "-l", "1.5", "@DEFAULT_AUDIO_SINK@", "5%+", NULL };
-static const char *voldowncmd[] = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%-", NULL };
-static const char *volmutecmd[] = { "wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle", NULL };
 static const char *micmutecmd[] = { "wpctl", "set-mute", "@DEFAULT_AUDIO_SOURCE@", "toggle", NULL };
 
 /* Reorder tiled clients in DWM's client list, approximating Niri column moves. */
@@ -175,9 +172,9 @@ static const Key keys[] = {
 	TAGKEYS(XK_8, 7)
 	TAGKEYS(XK_9, 8)
 	{ ControlMask|Mod1Mask, XK_Delete, quit, {0} },
-	{ 0, XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd} },
-	{ 0, XF86XK_AudioLowerVolume, spawn, {.v = voldowncmd} },
-	{ 0, XF86XK_AudioMute, spawn, {.v = volmutecmd} },
+	{ 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+ && \"$HOME/dotfiles/dwm/scripts/status\" --once") },
+	{ 0, XF86XK_AudioLowerVolume, spawn, SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && \"$HOME/dotfiles/dwm/scripts/status\" --once") },
+	{ 0, XF86XK_AudioMute, spawn, SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && \"$HOME/dotfiles/dwm/scripts/status\" --once") },
 	{ 0, XF86XK_AudioMicMute, spawn, {.v = micmutecmd} },
 };
 
