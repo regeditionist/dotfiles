@@ -72,4 +72,6 @@ or session menu. For daily use, see [CHEATSHEET.md](CHEATSHEET.md).
 
 ## Patches
 
-None. Patch directory: `patches/README.md`.
+The official DWM 6.8 system tray patch is applied and adapted to this local
+source; see [patches/README.md](patches/README.md). It adds tray icons to the
+right side of DWM's built-in bar and leaves the clock/status text beside them.
