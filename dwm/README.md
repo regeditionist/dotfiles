@@ -1,9 +1,9 @@
 # DWM setup
 
 This directory contains a small DWM 6.8 setup for this machine. It is based on
-the official suckless release archive, with the local configuration in
-`upstream/config.def.h`. No third-party patches or optional desktop utilities
-are used.
+the official suckless DWM release archive, with the local configuration in
+`upstream/config.def.h`. The app runner is upstream dmenu; no third-party
+patches or additional shell utilities are used.
 
 ## Source and build
 
@@ -20,9 +20,14 @@ From the repository root:
 ./dwm/scripts/build
 ```
 
-This compiles DWM locally and writes the executable to `dwm/build/dwm`. It does
-not install packages or copy anything into system directories. Edit
-`dwm/upstream/config.def.h`, then rerun the build command.
+This compiles DWM and dmenu locally and writes their executables to
+`dwm/build/`. It does not install packages or copy anything into system
+directories. Edit the respective `config.def.h` files, then rerun the build
+command.
+
+`Super+Ctrl+Enter` opens dmenu's command list. It filters executable commands
+in the session `PATH`; type an app command and press Enter. The launcher and
+`stest` stay inside this repository.
 
 ## Session integration state
 

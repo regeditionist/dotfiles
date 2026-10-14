@@ -51,7 +51,13 @@ static const char *browsercmd[] = { "zen-browser", NULL };
 static const char *filecmd[] = { "nautilus", NULL };
 /* Retain DWM's launcher symbols for its spawn() helper; no dmenu binding is set. */
 static char dmenumon[2] = "0";
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, NULL };
+static const char *dmenucmd[] = {
+	"/home/void/dotfiles/dwm/scripts/run-app",
+	"-i", "-fn", "monospace:size=10",
+	"-nb", "#181a1f", "-nf", "#c8ccd4",
+	"-sb", "#88c0d0", "-sf", "#181a1f",
+	NULL
+};
 static const char *volupcmd[] = { "wpctl", "set-volume", "-l", "1.5", "@DEFAULT_AUDIO_SINK@", "5%+", NULL };
 static const char *voldowncmd[] = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%-", NULL };
 static const char *volmutecmd[] = { "wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle", NULL };
@@ -103,6 +109,7 @@ static const Key keys[] = {
 	{ MODKEY, XK_Return, spawn, {.v = termcmd} },
 	{ MODKEY, XK_b, spawn, {.v = browsercmd} },
 	{ MODKEY, XK_e, spawn, {.v = filecmd} },
+	{ MODKEY|ControlMask, XK_Return, spawn, {.v = dmenucmd} },
 	{ MODKEY|ShiftMask, XK_b, togglebar, {0} },
 
 	/* DWM focus is a single client order, so all Niri directions map to it. */

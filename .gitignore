@@ -1,5 +1,12 @@
 dwm/build/dwm
+dwm/build/dmenu
+dwm/build/stest
+dwm/build/*.new
 dwm/upstream/config.h
 dwm/upstream/*.o
 dwm/upstream/dwm
 dwm/upstream/dwm-*.tar.gz
+dwm/dmenu/upstream/config.h
+dwm/dmenu/upstream/*.o
+dwm/dmenu/upstream/dmenu
+dwm/dmenu/upstream/stest

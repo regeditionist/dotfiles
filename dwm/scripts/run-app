@@ -1,0 +1,8 @@
+#!/bin/sh
+set -eu
+
+ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+PATH="$ROOT/build:$PATH"
+export PATH
+
+exec "$ROOT/dmenu/upstream/dmenu_run" "$@"

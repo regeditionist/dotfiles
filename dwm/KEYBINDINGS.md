@@ -8,6 +8,7 @@ windows live on numbered tags. Bindings are defined in `upstream/config.def.h`.
 | `Mod+Return` terminal | `Mod+Return` | Kitty |
 | `Mod+B` browser | `Mod+B` | Zen Browser |
 | `Mod+E` file manager | `Mod+E` | Nautilus |
+| `Mod+Ctrl+Enter` app launcher | `Mod+Ctrl+Enter` | dmenu command runner (`dmenu_run`) |
 | `Mod+Q` close window | `Mod+Q` | DWM kill client |
 | *(no Niri equivalent)* | `Mod+Shift+B` | Toggle the native DWM bar |
 | `Mod+H/J/K/L` or arrows focus | same keys | DWM has one cyclic client order; left/up go backward and right/down forward |
@@ -32,9 +33,9 @@ windows live on numbered tags. Bindings are defined in `upstream/config.def.h`.
 
 ## Not carried over
 
-- Noctalia launcher, wallpaper picker, control center, settings, lock screen,
-  and session menu: they are Wayland/Niri session features and are not started
-  here. No replacement shell or launcher was added.
+- Noctalia wallpaper picker, control center, settings, lock screen, and session
+  menu: these are Wayland/Niri session features and are not started here. The
+  launcher chord is mapped to dmenu instead.
 - `Mod+Home/End` first/last column, consume/expel column actions, tabbed
   columns, centering visible columns, and preset window heights: DWM has no
   equivalent column model.
