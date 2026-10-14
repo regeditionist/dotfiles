@@ -48,5 +48,6 @@ windows live on numbered tags. Bindings are defined in `upstream/config.def.h`.
 - `Mod+Shift+P` monitor power off: no existing X11 monitor power command was
   available, and a guessed output name could leave the display off.
 
-DWM's native bar shows tags, layout symbol, window title, and the clock status
-text supplied by `scripts/status`.
+DWM's native bar shows tags, layout symbol, window title, and the date plus
+default sink volume/mute status supplied by `scripts/status`. The system tray
+appears to the left of this status text.

@@ -32,8 +32,8 @@
 | `Super+Ctrl+Shift+R` | Add one master window |
 | `Super+Shift+B` | Show or hide DWM's built-in bar |
 
-The built-in bar also hosts XEmbed system tray icons on its right side, when
-applications provide them.
+The built-in bar also hosts XEmbed system tray icons to the left of the
+date/volume status text, when applications provide them.
 
 ## Workspaces (tags)
 

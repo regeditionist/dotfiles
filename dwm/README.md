@@ -40,7 +40,9 @@ No Niri configuration or unrelated system setting is changed by this
 repository.
 
 The DWM session script runs the compiled DWM binary and updates the native DWM
-bar's root-window status text using the already-installed `xprop` command. It
+bar's root-window status text with the date, default sink volume, and mute
+state. It uses `xsetroot -name` when available, with the existing `xprop`
+fallback. It
 does not start Noctalia, since the current Noctalia setup is tied to Niri's
 Wayland session. The bar itself remains DWM's built-in bar; there is no
 Polybar.
@@ -74,4 +76,4 @@ or session menu. For daily use, see [CHEATSHEET.md](CHEATSHEET.md).
 
 The official DWM 6.8 system tray patch is applied and adapted to this local
 source; see [patches/README.md](patches/README.md). It adds tray icons to the
-right side of DWM's built-in bar and leaves the clock/status text beside them.
+left of the date/volume status text in DWM's built-in bar.

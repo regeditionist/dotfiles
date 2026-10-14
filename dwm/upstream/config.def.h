@@ -5,7 +5,7 @@
 static const unsigned int borderpx = 2;
 static const unsigned int snap = 24;
 static const unsigned int systraypinning = 0;
-static const unsigned int systrayonleft = 0;
+static const unsigned int systrayonleft = 1;
 static const unsigned int systrayspacing = 2;
 static const int systraypinningfailfirst = 1;
 static const int showsystray = 1;

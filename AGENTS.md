@@ -23,6 +23,11 @@
 - The DWM session script builds if needed, applies the local pointer helper,
   runs `~/.fehbg` if present, starts the status updater, then starts DWM.
   `~/.xinitrc` is not used for this SDDM-launched session.
+- `dwm/scripts/status` keeps the date and appends default sink volume/mute
+  from `wpctl`; it prefers `xsetroot -name` and falls back to `xprop`. The
+  `xorg-xsetroot` package was not installed at last check, so `xsetroot` mode
+  still needs the user's explicit approval for installation. The current tool
+  environment also could not connect to PipeWire to read a live volume.
 - The system currently has pacman `dmenu` installed, but the DWM shortcut uses
   the repository's local dmenu runner by design after commit `6d6260d` reverted
   the attempted switch to `/usr/bin/dmenu_run`. That attempt made the launcher
@@ -36,8 +41,8 @@
   root. The build writes ignored binaries in `dwm/build/` and needs no root.
 - The official DWM 6.8 systray patch is saved at
   `dwm/patches/dwm-systray-6.8.diff` and adapted in the vendored `dwm.c`.
-  Tray is enabled at the right of DWM's built-in bar; clock/status text is to
-  its left. Existing local key and mouse bindings were preserved.
+  Tray is enabled immediately left of DWM's right-aligned status text.
+  Existing local key and mouse bindings were preserved.
 - Pointer acceleration is set to libinput's flat profile for supported X11
   pointer devices by `dwm/scripts/pointer-accel.c`. This only applies in DWM;
   the live effect has not been visually verified from a DWM session.

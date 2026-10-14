@@ -18,7 +18,7 @@ before running it.
 Install missing build and runtime dependencies with pacman:
 
 ```sh
-sudo pacman -S --needed base-devel libx11 libxft libxinerama libxi xorg-server xorg-xprop
+sudo pacman -S --needed base-devel libx11 libxft libxinerama libxi xorg-server xorg-xprop xorg-xsetroot
 ```
 
 If you already have these packages, pacman will leave them installed. `feh`

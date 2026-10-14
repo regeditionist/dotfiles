@@ -2,7 +2,22 @@
 set -eu
 
 while :; do
-	status=$(date '+%a %d %b  %H:%M')
-	xprop -root -set WM_NAME "$status" >/dev/null 2>&1 || :
+	date_text=$(date '+%a %d %b  %H:%M')
+	volume_text='VOL --'
+	if volume_output=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ 2>/dev/null); then
+		volume=$(printf '%s\n' "$volume_output" | awk '$1 == "Volume:" { printf "%.0f", $2 * 100; exit }')
+		if [ -n "$volume" ]; then
+			volume_text="VOL ${volume}%"
+			case "$volume_output" in
+				*'[MUTED]'*) volume_text="$volume_text MUTED" ;;
+			esac
+		fi
+	fi
+	status="$date_text  |  $volume_text"
+	if command -v xsetroot >/dev/null 2>&1; then
+		xsetroot -name "$status" >/dev/null 2>&1 || :
+	else
+		xprop -root -set WM_NAME "$status" >/dev/null 2>&1 || :
+	fi
 	sleep 30
 done
