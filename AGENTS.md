@@ -21,8 +21,9 @@
 - SDDM autologin remains Gamescope. Do not change it. The home directory is
   private; the DWM entry uses `/usr/bin/sh` as `TryExec` so SDDM can list it.
 - The DWM session script builds if needed, applies the local pointer helper,
-  runs `~/.fehbg` if present, starts the status updater, then starts DWM.
-  `~/.xinitrc` is not used for this SDDM-launched session.
+  runs `~/.fehbg` if present, starts Dunst and the status updater, then starts
+  DWM. It stops Dunst and the updater when DWM exits. `~/.xinitrc` is not used
+  for this SDDM-launched session.
 - `dwm/scripts/status` keeps the date and appends default sink volume/mute
   from `wpctl`; it prefers `xsetroot -name` and falls back to `xprop`. Volume
   up/down/output-mute keybindings invoke its one-shot mode for immediate

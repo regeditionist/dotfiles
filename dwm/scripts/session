@@ -13,11 +13,16 @@ if [ -r "$HOME/.fehbg" ]; then
 	/bin/sh "$HOME/.fehbg"
 fi
 
+/usr/bin/dunst &
+dunst_pid=$!
+
 "$ROOT/scripts/status" &
 status_pid=$!
 cleanup() {
 	kill "$status_pid" 2>/dev/null || :
+	kill "$dunst_pid" 2>/dev/null || :
 	wait "$status_pid" 2>/dev/null || :
+	wait "$dunst_pid" 2>/dev/null || :
 }
 trap cleanup EXIT HUP INT TERM
 

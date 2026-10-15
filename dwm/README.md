@@ -59,6 +59,10 @@ The session launcher also runs `~/.fehbg` when present, restoring the wallpaper
 configured by feh for DWM. This is handled in the SDDM DWM launcher, so no
 `~/.xinitrc` change is needed and other sessions are unaffected.
 
+The launcher starts the installed Dunst notification daemon for the DWM
+session and stops it when DWM exits. `libnotify` is available for applications
+that send notifications; no extra DWM patch or notification panel is used.
+
 The SDDM entry's `TryExec` checks `/usr/bin/sh`, which is visible to the SDDM
 greeter. The DWM binary and launcher remain under the private `/home/void`
 directory; after authentication SDDM runs the session as `void`, so that
