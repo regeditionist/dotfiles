@@ -63,6 +63,9 @@ The launcher starts the installed Dunst notification daemon for the DWM
 session and stops it when DWM exits. `libnotify` is available for applications
 that send notifications; no extra DWM patch or notification panel is used.
 
+`Ctrl+Shift+1` uses the installed ImageMagick `import` command to save a
+full-screen PNG under `~/Pictures/Screenshots` and notify you of its path.
+
 The SDDM entry's `TryExec` checks `/usr/bin/sh`, which is visible to the SDDM
 greeter. The DWM binary and launcher remain under the private `/home/void`
 directory; after authentication SDDM runs the session as `void`, so that

@@ -1,0 +1,15 @@
+#!/bin/sh
+set -eu
+
+directory="$HOME/Pictures/Screenshots"
+mkdir -p "$directory"
+stamp=$(date '+%Y-%m-%d_%H-%M-%S_%N')
+file="$directory/dwm-$stamp.png"
+
+if import -window root "$file"; then
+	notify-send 'Screenshot saved' "$file" >/dev/null 2>&1 || :
+else
+	rm -f "$file"
+	notify-send 'Screenshot failed' 'Could not capture the X11 screen.' >/dev/null 2>&1 || :
+	exit 1
+fi

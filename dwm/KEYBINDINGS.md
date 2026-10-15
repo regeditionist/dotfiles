@@ -29,6 +29,7 @@ windows live on numbered tags. Bindings are defined in `upstream/config.def.h`.
 | `Mod+Shift+arrows` focus monitor | same keys | DWM cycles Xinerama monitor order; up/down follow left/right order |
 | `Mod+Shift+Ctrl+arrows` move to monitor | same keys | Tags the selected client to the adjacent Xinerama monitor |
 | `Ctrl+Alt+Delete` quit Niri | `Ctrl+Alt+Delete` | Exits DWM |
+| *(no Niri equivalent)* | `Ctrl+Shift+1` | Save a full-screen PNG under `~/Pictures/Screenshots`; Dunst reports the path |
 | XF86 volume up/down/mute, mic mute | same keys | Uses installed `wpctl` against the default PipeWire sink/source |
 
 ## Not carried over
@@ -42,7 +43,8 @@ windows live on numbered tags. Bindings are defined in `upstream/config.def.h`.
 - Workspace and column mouse-wheel navigation: DWM's vanilla button bindings
   do not provide the same directional workspace/column behavior.
 - Overview and keyboard-inhibitor escape: no vanilla DWM equivalent.
-- Screenshot keys: no screenshot utility is installed; none was added.
+- Screenshot capture uses the installed ImageMagick `import` command, bound to
+  `Ctrl+Shift+1`.
 - Media play/pause/next/previous and brightness keys: no MPRIS or brightness
   command was available in the audited setup, so these remain unbound.
 - `Mod+Shift+P` monitor power off: no existing X11 monitor power command was

@@ -172,6 +172,7 @@ static const Key keys[] = {
 	TAGKEYS(XK_8, 7)
 	TAGKEYS(XK_9, 8)
 	{ ControlMask|Mod1Mask, XK_Delete, quit, {0} },
+	{ ControlMask|ShiftMask, XK_1, spawn, SHCMD("\"$HOME/dotfiles/dwm/scripts/screenshot\"") },
 	{ 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+ && \"$HOME/dotfiles/dwm/scripts/status\" --once") },
 	{ 0, XF86XK_AudioLowerVolume, spawn, SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && \"$HOME/dotfiles/dwm/scripts/status\" --once") },
 	{ 0, XF86XK_AudioMute, spawn, SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && \"$HOME/dotfiles/dwm/scripts/status\" --once") },

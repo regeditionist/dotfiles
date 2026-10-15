@@ -53,6 +53,8 @@
 - `Ctrl+Alt+Delete` exits DWM to SDDM. `Super+Q` closes a window. The app
   launcher is `Super+Ctrl+Enter`; `Super+Enter` launches Kitty, `Super+B`
   Zen Browser, and `Super+E` Nautilus.
+- `Ctrl+Shift+1` captures the X11 root window with ImageMagick `import`, saves
+  a timestamped PNG to `~/Pictures/Screenshots`, then notifies with Dunst.
 - Practical keys and limitations are documented in `dwm/CHEATSHEET.md` and
   `dwm/KEYBINDINGS.md`. Build/session notes are in `dwm/README.md`.
 

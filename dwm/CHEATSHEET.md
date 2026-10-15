@@ -10,6 +10,7 @@
 | `Super+Enter` | Open Kitty terminal |
 | `Super+B` | Open Zen Browser |
 | `Super+E` | Open Nautilus |
+| `Ctrl+Shift+1` | Save a full-screen PNG in `~/Pictures/Screenshots` and show its path |
 
 ## Windows and layouts
 
