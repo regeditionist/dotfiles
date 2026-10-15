@@ -5,8 +5,10 @@ ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 WM="$ROOT/build/dwm"
 [ -x "$WM" ] || "$ROOT/scripts/build"
 
-# Apply neutral core X pointer acceleration for this DWM session.
-"$ROOT/build/pointer-accel" || :
+# Keep libinput's flat profile selected for this DWM session, including when
+# pointer devices appear later or their profile is reset.
+"$ROOT/build/pointer-accel" --watch &
+pointer_accel_pid=$!
 
 # Restore the user's feh wallpaper for this X11 session.
 if [ -r "$HOME/.fehbg" ]; then
@@ -19,8 +21,10 @@ dunst_pid=$!
 "$ROOT/scripts/status" &
 status_pid=$!
 cleanup() {
+	kill "$pointer_accel_pid" 2>/dev/null || :
 	kill "$status_pid" 2>/dev/null || :
 	kill "$dunst_pid" 2>/dev/null || :
+	wait "$pointer_accel_pid" 2>/dev/null || :
 	wait "$status_pid" 2>/dev/null || :
 	wait "$dunst_pid" 2>/dev/null || :
 }

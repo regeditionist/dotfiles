@@ -48,9 +48,11 @@ not start Noctalia, since the current Noctalia setup is tied to Niri's
 Wayland session. The bar itself remains DWM's built-in bar; there is no
 Polybar.
 
-At DWM session start, a small local XInput2 helper selects libinput's flat
-acceleration profile for pointer devices that expose that property. This
-removes speed-dependent acceleration without adding a package or changing
+During the DWM session, a small local XInput2 helper selects libinput's flat
+acceleration profile for pointer devices that expose that property. It watches
+for added or reconfigured devices and checks periodically for profile resets.
+The property is the three-flag libinput profile array (adaptive, flat, custom).
+This removes speed-dependent acceleration without adding a package or changing
 Niri/Gamescope settings. This is an X11 session setting; it cannot affect the
 current Wayland session. Devices without the libinput property keep their own
 driver settings.

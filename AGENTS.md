@@ -48,8 +48,10 @@
   Tray is enabled immediately left of DWM's right-aligned status text.
   Existing local key and mouse bindings were preserved.
 - Pointer acceleration is set to libinput's flat profile for supported X11
-  pointer devices by `dwm/scripts/pointer-accel.c`. This only applies in DWM;
-  the live effect has not been visually verified from a DWM session.
+  pointer devices by `dwm/scripts/pointer-accel.c`. The DWM session runs it as
+  a watcher to handle added devices and periodic profile resets. This only
+  applies in DWM; the live effect has not been visually verified from a DWM
+  session.
 - `Ctrl+Alt+Delete` exits DWM to SDDM. `Super+Q` closes a window. The app
   launcher is `Super+Ctrl+Enter`; `Super+Enter` launches Kitty, `Super+B`
   Zen Browser, and `Super+E` Nautilus.
